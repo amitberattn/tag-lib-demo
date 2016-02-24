@@ -1,5 +1,6 @@
 package taglibbootcampdemo
 
+import groovy.UserDetail
 import org.apache.commons.lang.math.RandomUtils
 
 class UserController {
@@ -24,5 +25,16 @@ class UserController {
             isAdmin = true
         }
         render(view: 'displayDashboard', model: [isAdmin : isAdmin])
+    }
+
+    def displayUsersList(){
+
+        List<UserDetail> usersList = []
+        for(int i=1; i<=10; i++){
+            usersList.add(new UserDetail(firstName: "User_${i}" , lastName:"lastName_${i}" , id:i))
+        }
+
+        render(view: 'displayUsersList', model: [usersList:usersList])
+
     }
 }

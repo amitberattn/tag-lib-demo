@@ -1,1 +1,1 @@
-<h1>User list</h1>
+<h1>Users list</h1>
