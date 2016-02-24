@@ -103,13 +103,7 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-md-2">DOB</div>
-
-                    <div class="col-md-3"><g:formatDate date="${new java.util.Date()}" format="yyyy/MM/dd"/></div>
-                </div>
-            </div>
+            <div class="pull-right">Current Time:::<g:formatDate date="${currentTime}" format="dd/MM/yyyy hh:mm:ss"/> </div>
             <g:submitButton name="save" value="save"/>
             <g:actionSubmit value="${g.message(code: 'default.button.edit.label')}" action="edit"/>
 

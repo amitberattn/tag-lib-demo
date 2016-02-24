@@ -37,12 +37,12 @@ class UserController {
     }
 
     def loginForm() {
-        render(view: 'login')
+        render(view: 'login' ,model:[ currentTime : new Date()])
     }
 
     def save(User user) {
         if(user?.hasErrors())
-            render view: 'login' , model: [user :user]
+            render view: 'login' , model: [user :user , currentTime : new Date()]
         else
         render "Form saved"
 
