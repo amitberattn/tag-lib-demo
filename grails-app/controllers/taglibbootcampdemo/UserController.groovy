@@ -53,4 +53,13 @@ class UserController {
 
         render "Form Edited"
     }
+
+
+    def taglibDemo(){
+
+    }
+
+    def showUserDetail(Boolean isAdmin ){
+        render(view: 'displayDashboard', model: [isAdmin: isAdmin])
+    }
 }

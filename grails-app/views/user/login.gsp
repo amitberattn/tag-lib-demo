@@ -22,6 +22,7 @@
 
                     <div class="col-md-3">
                         <g:textField name="firstName" value="${user?.firstName}"/>
+                        <g:fieldError field="firstName" bean="${user}"/>
                     </div>
                 </div>
             </div>
@@ -105,7 +106,7 @@
 
             <div class="pull-right">Current Time:::<g:formatDate date="${currentTime}" format="dd/MM/yyyy hh:mm:ss"/> </div>
             <g:submitButton name="save" value="save"/>
-            <g:actionSubmit value="${g.message(code: 'default.button.edit.label')}" action="edit"/>
+            <g:actionSubmit value="${message(code: 'default.button.edit.label')}" action="edit"/>
 
         </g:form>
     </div>
