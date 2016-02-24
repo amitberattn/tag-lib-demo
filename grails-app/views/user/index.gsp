@@ -34,6 +34,7 @@
 <br><br>
 
 <p>Resource Usage</p>
+<li>
     <g:resource dir="css" file="custom.css"/>&nbsp;&nbsp;|
 
 %{--
