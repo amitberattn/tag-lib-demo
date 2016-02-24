@@ -5,36 +5,52 @@ import org.apache.commons.lang.math.RandomUtils
 
 class UserController {
 
-
     //Show the usage Of Link, Create Link and resource
     def index() {
 
     }
 
-    def list(){
+    def list() {
         render view: 'list'
     }
 
-
     //Show the usage Of Logical Tags
-    def displayDashboard(){
+    def displayDashboard() {
 
         int randomNumber = RandomUtils.nextInt()
         Boolean isAdmin = false
-        if(randomNumber % 2 ==0){
+        if (randomNumber % 2 == 0) {
             isAdmin = true
         }
-        render(view: 'displayDashboard', model: [isAdmin : isAdmin])
+        render(view: 'displayDashboard', model: [isAdmin: isAdmin])
     }
 
-    def displayUsersList(){
+    def displayUsersList() {
 
         List<UserDetail> usersList = []
-        for(int i=1; i<=10; i++){
-            usersList.add(new UserDetail(firstName: "User_${i}" , lastName:"lastName_${i}" , id:i))
+        for (int i = 1; i <= 10; i++) {
+            usersList.add(new UserDetail(firstName: "User_${i}", lastName: "lastName_${i}", id: i))
         }
 
-        render(view: 'displayUsersList', model: [usersList:usersList])
+        render(view: 'displayUsersList', model: [usersList: usersList])
 
+    }
+
+    def loginForm() {
+        render(view: 'login')
+    }
+
+    def save(User user) {
+        if(user?.hasErrors())
+            render view: 'login' , model: [user :user]
+        else
+        render "Form saved"
+
+    }
+
+    def edit(User user) {
+
+
+        render "Form Edited"
     }
 }
