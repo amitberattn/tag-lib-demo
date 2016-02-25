@@ -25,6 +25,7 @@ class UserController {
         render(view: 'displayDashboard', model: [isAdmin: isAdmin])
     }
 
+    //Show the usage Of Iteration Tags
     def displayUsersList() {
 
         List<UserDetail> usersList = []
@@ -36,6 +37,7 @@ class UserController {
 
     }
 
+    //Show the usage Of Form Tags
     def loginForm() {
         render(view: 'login' ,model:[ currentTime : new Date()])
     }

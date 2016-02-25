@@ -7,7 +7,7 @@
 
 <div class="container">
     <div class="well">
-    <div class="alert-danger">
+    <div class="alert alert-danger">
         <g:hasErrors bean="${user}">
 
             <g:eachError><g:message error="${it}"/> </g:eachError>
@@ -20,9 +20,11 @@
                         <label for="firstName"> First Name</label>
                     </div>
 
-                    <div class="col-md-3">
+                    <div class="col-md-6">
                         <g:textField name="firstName" value="${user?.firstName}"/>
+                        <div class="alert alert-danger" role="alert">
                         <g:fieldError field="firstName" bean="${user}"/>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -107,6 +109,11 @@
             <div class="pull-right">Current Time:::<g:formatDate date="${currentTime}" format="dd/MM/yyyy hh:mm:ss"/> </div>
             <g:submitButton name="save" value="save"/>
             <g:actionSubmit value="${message(code: 'default.button.edit.label')}" action="edit"/>
+
+
+            %{--
+             for internationalization
+            <g:actionSubmit value="${message(code: 'default.paginate.next' , locale: 'fr')}" action="save"/>--}%
 
         </g:form>
     </div>

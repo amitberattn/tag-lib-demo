@@ -1,4 +1,4 @@
-<h1>Welcome To the Gallery</h1>
+<h1>Welcome Page</h1>
 
 <ul>
 <p>Link Usage</p>
