@@ -45,8 +45,10 @@ class UserController {
     def save(User user) {
         if(user?.hasErrors())
             render view: 'login' , model: [user :user , currentTime : new Date()]
-        else
-        render "Form saved"
+        else {
+            user.save()
+            render "Form saved"
+        }
 
     }
 
@@ -63,5 +65,13 @@ class UserController {
 
     def showUserDetail(Boolean isAdmin ){
         render(view: 'displayDashboard', model: [isAdmin: isAdmin])
+    }
+
+    //Show Pagination Demo
+    def showPaginatedData(){
+        params.max = Math.min(params.max ? params.int('max') : 1, 100)
+        params.offset = (params.offset ? params.int('offset') :0)
+        List<User> userList = User.list(params)
+        render(view: 'showpaginationInTable', model:[userList:userList , userCount:User.count])
     }
 }

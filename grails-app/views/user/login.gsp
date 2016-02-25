@@ -7,12 +7,13 @@
 
 <div class="container">
     <div class="well">
-    <div class="alert alert-danger">
-        <g:hasErrors bean="${user}">
 
+        <g:hasErrors bean="${user}">
+            <div class="alert alert-danger">
             <g:eachError><g:message error="${it}"/> </g:eachError>
+            </div>
         </g:hasErrors>
-        <g:renderErrors  bean="${user}"/> </div>
+        <g:renderErrors  bean="${user}"/>
         <g:form action="save">
             <div class="form-group">
                 <div class="row">
@@ -22,7 +23,7 @@
 
                     <div class="col-md-6">
                         <g:textField name="firstName" value="${user?.firstName}"/>
-                        <div class="alert alert-danger" role="alert">
+                        <div class="alert-danger" role="alert">
                         <g:fieldError field="firstName" bean="${user}"/>
                         </div>
                     </div>
