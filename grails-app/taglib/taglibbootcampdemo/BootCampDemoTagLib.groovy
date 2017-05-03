@@ -10,7 +10,7 @@ class BootCampDemoTagLib {
     def showUserDetail = { attrs ->
 
         Boolean isAdmin = Boolean.valueOf(attrs.isAdmin)
-        out << link(controller: 'user', action: 'showUserDetail', params: [isAdmin : isAdmin],
+        out << link(controller: 'user', action: 'showUserDetail', params: [isAdmin: isAdmin],
                 isAdmin ? 'Link For Admin User' : 'Link For Non-Admin USer') << '|||'
     }
 
@@ -23,14 +23,13 @@ class BootCampDemoTagLib {
         out << render(template: '/user/usersList', model: [userList: usersList])
     }
 
-    def showAdmin = {attrs , body->
+    def showAdmin = { attrs, body ->
         Boolean isAdmin = Boolean.valueOf(attrs.isAdmin)
-        if(isAdmin) {
-            out << body()
+        if (isAdmin) {
+            out << body
         }
 
     }
-
 
 
 }

@@ -1,5 +1,5 @@
 
-<table border="1">
+<table class="table">
     <th>id </th>
     <th>FirstName </th>
     <th>LastName </th>

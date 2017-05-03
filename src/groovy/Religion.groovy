@@ -7,6 +7,7 @@ enum Religion {
     MUSLIM("Muslim")
 
     String displayName
+
     Religion(String displayName) {
         this.displayName = displayName
 

@@ -10,22 +10,22 @@
 
         <g:hasErrors bean="${user}">
             <div class="alert alert-danger">
-            <g:eachError><g:message error="${it}"/> </g:eachError>
+                <g:eachError><g:message error="${it}"/></g:eachError>
             </div>
         </g:hasErrors>
-        <g:renderErrors  bean="${user}"/>
+        <g:renderErrors bean="${user}"/>
         <g:form action="save">
             <g:hiddenField name="userTime" value="${currentTime}"></g:hiddenField>
             <div class="form-group">
                 <div class="row">
                     <div class="col-md-2">
-                        <label for="firstName"> First Name</label>
+                        <label for="firstName">First Name</label>
                     </div>
 
                     <div class="col-md-3">
                         <g:textField class="form-control" name="firstName" value="${user?.firstName}"/>
                         <div class="alert-danger" role="alert">
-                        <g:fieldError field="firstName" bean="${user}"/>
+                            <g:fieldError field="firstName" bean="${user}"/>
                         </div>
                     </div>
                 </div>
@@ -72,7 +72,8 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col-md-2">Gender</div>
-                    <g:radioGroup class="form-control" values="${[true, false]}" labels="${["Male", "Female"]}" name="gender">
+                    <g:radioGroup class="form-control" values="${[true, false]}" labels="${["Male", "Female"]}"
+                                  name="gender">
                         <label>
                             <span class="radioSpan">${it.radio}</span>
                             ${it.label}
@@ -86,8 +87,9 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col-md-2">Country</div>
+
                     <div class="col-md-3">
-                    <g:countrySelect class="form-control" name="country"/>
+                        <g:countrySelect class="form-control" name="country"/>
                     </div>
 
                 </div>
@@ -97,8 +99,10 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col-md-2">Religion</div>
+
                     <div class="col-md-3">
-                    <g:select class="form-control col-md-4" name="religion" from="${Religion.values()}" keys="${Religion.values()*.displayName}"/>
+                        <g:select class="form-control col-md-4" name="religion" from="${Religion.values()}"
+                                  keys="${Religion.values()*.displayName}"/>
                     </div>
                 </div>
             </div>
@@ -111,14 +115,16 @@
                 </div>
             </div>
 
-            <div class="pull-right">Current Time:::<g:formatDate date="${currentTime}" format="dd/MM/yyyy hh:mm:ss"/> </div>
+            <div class="pull-right">Current Time:::<g:formatDate date="${currentTime}"
+                                                                 format="dd/MM/yyyy hh:mm:ss"/></div>
             <g:submitButton class="btn btn-success" name="save" value="save"/>
-            <g:actionSubmit class="btn btn-primary" value="${message(code: 'default.button.edit.label')}" action="edit"/>
+            <g:actionSubmit class="btn btn-primary" value="${message(code: 'default.button.edit.label')}"
+                            action="edit"/>
 
 
-            %{--
-             for internationalization
-            <g:actionSubmit value="${message(code: 'default.paginate.next' , locale: 'fr')}" action="save"/>--}%
+        %{--
+         for internationalization
+        <g:actionSubmit value="${message(code: 'default.paginate.next' , locale: 'fr')}" action="save"/>--}%
 
         </g:form>
     </div>
