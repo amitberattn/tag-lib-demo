@@ -11,7 +11,18 @@ class UserController {
     }
 
     def list() {
-        render view: 'list'
+        params.max = Math.min(params.max ? params.int('max') : 2, 100)
+        params.offset = (params.offset ? params.int('offset') : 0)
+        List<User> userList = User.list(params)
+        render(view: 'showpaginationInTable', model: [userList: userList, userCount: User.count])
+    }
+
+    def show() {
+
+    }
+
+    def search() {
+
     }
 
     //Show the usage Of Logical Tags
@@ -38,13 +49,13 @@ class UserController {
     }
 
     //Show the usage Of Form Tags
-    def loginForm() {
-        render(view: 'login' ,model:[ currentTime : new Date()])
+    def regForm() {
+        render(view: 'registration', model: [currentTime: new Date()])
     }
 
     def save(User user) {
-        if(user?.hasErrors())
-            render view: 'login' , model: [user :user , currentTime : new Date()]
+        if (user?.hasErrors())
+            render view: 'login', model: [user: user, currentTime: new Date()]
         else {
             user.save()
             render "Form saved"
@@ -53,25 +64,23 @@ class UserController {
     }
 
     def edit(User user) {
-
-
         render "Form Edited"
     }
 
 
-    def taglibDemo(){
+    def taglibDemo() {
 
     }
 
-    def showUserDetail(Boolean isAdmin ){
+    def showUserDetail(Boolean isAdmin) {
         render(view: 'displayDashboard', model: [isAdmin: isAdmin])
     }
 
     //Show Pagination Demo
-    def showPaginatedData(){
-        params.max = Math.min(params.max ? params.int('max') : 1, 100)
-        params.offset = (params.offset ? params.int('offset') :0)
+    def showPaginatedData() {
+        params.max = Math.min(params.max ? params.int('max') : 2, 100)
+        params.offset = (params.offset ? params.int('offset') : 0)
         List<User> userList = User.list(params)
-        render(view: 'showpaginationInTable', model:[userList:userList , userCount:User.count])
+        render(view: 'showpaginationInTable', model: [userList: userList, userCount: User.count])
     }
 }

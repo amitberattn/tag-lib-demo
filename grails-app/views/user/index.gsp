@@ -1,36 +1,61 @@
-<h1>Welcome Page</h1>
+
+<head>
+    <link rel="stylesheet" href="${g.resource(dir: 'css', file: 'bootstrap.min.css')}"/>
+</head>
+<div class="container">
+<h1 style="text-align: center">Welcome Page</h1>
 
 <ul>
 <p>Link Usage</p>
-<li>
-    <g:link action="list">Users List using Action attribute</g:link>&nbsp;&nbsp;|
+<div>
+    <g:link class="btn btn-success" action="list">Users List using Action attribute</g:link>&nbsp;&nbsp;|
 
-    <g:link url="[action: 'list']">Users List using Url attribute</g:link>&nbsp;&nbsp;|
+    <g:link class="btn btn-default btn-warning" url="[action: 'list']">Users List using Url attribute</g:link>&nbsp;&nbsp;|
 
-    <g:link uri="/user/list">Users List using Uri attribute</g:link>&nbsp;&nbsp;|
+    <g:link class="btn btn-default" style="background-color: #5bc0de !important;" uri="/user/list">Users List using Uri attribute</g:link>&nbsp;&nbsp;|
 
-    <a href="/TaglibBootcampDemo/user/list">Users List Using anchor tag</a>&nbsp;&nbsp;
-</li>
+    <a class="btn btn-default" href="/TaglibBootcampDemo/user/list">Users List Using anchor tag</a>&nbsp;&nbsp;
+</div>
 <br><br>
 
 <p>Create Link Usage</p>
-<li>
-    Action Attribute:::<g:createLink action="list"/>&nbsp;&nbsp;|
 
-    Url Attribute::<g:createLink url="[action: 'list']"/>&nbsp;&nbsp;|
+    <table class="table">
+        <tr>
+            <td>Action Attribute</td>
+            <td><g:createLink action="list"/></td>
+        </tr>
 
-    Uri Attribute:::<g:createLink uri="/user/list"/>&nbsp;&nbsp;|
+        <tr>
+            <td>Url Attribute</td>
+            <td><g:createLink url="[action: 'list']"/></td>
+        </tr>
 
-    Id Attribute:::<g:createLink action="list" id="101"/>&nbsp;&nbsp;|
+        <tr>
+            <td>Uri Attribute</td>
+            <td><g:createLink uri="/user/list"/></td>
+        </tr>
 
-    Params Attribute:::<g:createLink action="list" params="[name:'Richa', Dept:'grails']"/>&nbsp;&nbsp;|
+        <tr>
+            <td>Id Attribute</td>
+            <td><g:createLink controller="user" action="show" id="101"/></td>
+        </tr>
+
+        <tr>
+            <td>Params Attribute</td>
+            <td><g:createLink action="search" params="[name:'Richa', Dept:'grails']"/></td>
+        </tr>
+        <tr>
+            <td>Implementation</td>
+            <td><a href="${createLink(action: 'list')}">Using anchor</a></td>
+        </tr>
+    </table>
 
 %{--
     <a href="${createLink(action: 'list')}">Using anchor</a>
 --}%
 
 
-</li>
 <br><br>
 
 <p>Resource Usage</p>
@@ -44,3 +69,4 @@
     <link rel="stylesheet" href="${resource(dir: 'css',file: 'custom.css')}"/>&nbsp;&nbsp;
 </li>
 </ul>
+</div>

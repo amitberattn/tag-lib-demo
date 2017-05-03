@@ -3,7 +3,7 @@
 </head>
 
 <body>
-<h1>Registration Form</h1>
+<h1 style="text-align: center">Registration Form</h1>
 
 <div class="container">
     <div class="well">
@@ -15,14 +15,15 @@
         </g:hasErrors>
         <g:renderErrors  bean="${user}"/>
         <g:form action="save">
+            <g:hiddenField name="userTime" value="${currentTime}"></g:hiddenField>
             <div class="form-group">
                 <div class="row">
                     <div class="col-md-2">
                         <label for="firstName"> First Name</label>
                     </div>
 
-                    <div class="col-md-6">
-                        <g:textField name="firstName" value="${user?.firstName}"/>
+                    <div class="col-md-3">
+                        <g:textField class="form-control" name="firstName" value="${user?.firstName}"/>
                         <div class="alert-danger" role="alert">
                         <g:fieldError field="firstName" bean="${user}"/>
                         </div>
@@ -38,7 +39,7 @@
                     </div>
 
                     <div class="col-md-3">
-                        <g:textField name="lastName" required="required"/>
+                        <g:textField class="form-control" name="lastName" required="required"/>
                     </div>
                 </div>
             </div>
@@ -50,7 +51,7 @@
                     </div>
 
                     <div class="col-md-3">
-                        <g:passwordField name="password"/>
+                        <g:passwordField class="form-control" name="password"/>
                     </div>
                 </div>
             </div>
@@ -63,7 +64,7 @@
                     </div>
 
                     <div class="col-md-3">
-                        <g:textArea name="description"/>
+                        <g:textArea class="form-control" name="description"/>
                     </div>
                 </div>
             </div>
@@ -71,7 +72,7 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col-md-2">Gender</div>
-                    <g:radioGroup values="${[true, false]}" labels="${["Male", "Female"]}" name="gender">
+                    <g:radioGroup class="form-control" values="${[true, false]}" labels="${["Male", "Female"]}" name="gender">
                         <label>
                             <span class="radioSpan">${it.radio}</span>
                             ${it.label}
@@ -85,7 +86,9 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col-md-2">Country</div>
-                    <g:countrySelect name="country"/>
+                    <div class="col-md-3">
+                    <g:countrySelect class="form-control" name="country"/>
+                    </div>
 
                 </div>
             </div>
@@ -94,8 +97,9 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col-md-2">Religion</div>
-                    <g:select name="religion" from="${Religion.values()}" keys="${Religion.values()*.displayName}"/>
-
+                    <div class="col-md-3">
+                    <g:select class="form-control col-md-4" name="religion" from="${Religion.values()}" keys="${Religion.values()*.displayName}"/>
+                    </div>
                 </div>
             </div>
 
@@ -108,8 +112,8 @@
             </div>
 
             <div class="pull-right">Current Time:::<g:formatDate date="${currentTime}" format="dd/MM/yyyy hh:mm:ss"/> </div>
-            <g:submitButton name="save" value="save"/>
-            <g:actionSubmit value="${message(code: 'default.button.edit.label')}" action="edit"/>
+            <g:submitButton class="btn btn-success" name="save" value="save"/>
+            <g:actionSubmit class="btn btn-primary" value="${message(code: 'default.button.edit.label')}" action="edit"/>
 
 
             %{--

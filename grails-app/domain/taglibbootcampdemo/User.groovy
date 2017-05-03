@@ -3,7 +3,7 @@ package taglibbootcampdemo
 class User {
 
     static constraints = {
-        firstName(maxSize: 3)
+        firstName(maxSize: 20)
     }
     String firstName
     String lastName
